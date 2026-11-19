@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>💰 ExpensePro</h2>
+
+        <nav>
+            <a href="#dashboard">🏠 Dashboard</a>
+            <a href="#add">➕ Add Expense</a>
+            <a href="#transactions">📋 Transactions</a>
+            <a href="#reports">📊 Reports</a>
+            <a href="#budget">💳 Budget</a>
+        </nav>
+
+        <p class="sidebar-footer">Personal Finance Manager</p>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <header>
+            <div>
+                <h1>Expense Dashboard</h1>
+                <p>Manage your money smartly!</p>
+            </div>
+            <span id="today"></span>
+        </header>
+
+        <!-- Dashboard Cards -->
+        <section class="cards" id="dashboard">
+
+            <div class="card">
+                <h3>Total Expenses</h3>
+                <h2 id="total">Rs. 0</h2>
+            </div>
+
+            <div class="card">
+                <h3>Today's Expenses</h3>
+                <h2 id="todayTotal">Rs. 0</h2>
+            </div>
+
+            <div class="card">
+                <h3>This Month</h3>
+                <h2 id="monthlyTotal">Rs. 0</h2>
+            </div>
+
+            <div class="card">
+                <h3>Transactions</h3>
+                <h2 id="count">0</h2>
+            </div>
+
+        </section>
+
+        <!-- Add Expense -->
+        <section class="panel" id="add">
+
+            <h2>Add New Expense</h2>
+
+            <form id="expenseForm">
+
+                <input type="hidden" id="editId">
+
+                <div class="form-grid">
+
+                    <div>
+                        <label>Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+
+                    <div>
+                        <label>Category</label>
+                        <select id="category" required>
+                            <option value="">Select Category</option>
+                            <option>Food</option>
+                            <option>Education</option>
+                            <option>Transport</option>
+                            <option>Shopping</option>
+                            <option>Health</option>
+                            <option>Entertainment</option>
+                            <option>Other</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label>Description</label>
+                        <input type="text" id="description"
+                               placeholder="Enter description" required>
+                    </div>
+
+                    <div>
+                        <label>Amount (PKR)</label>
+                        <input type="number" id="amount"
+                               placeholder="Enter amount" min="0.01"
+                               step="0.01" required>
+                    </div>
+
+                </div>
+
+                <button type="submit" id="submitBtn">
+                    Add Expense
+                </button>
+
+            </form>
+
+        </section>
+
+        <!-- Budget -->
+        <section class="panel" id="budget">
+
+            <h2>Monthly Budget</h2>
+
+            <div class="budget-form">
+                <input type="number" id="budgetInput"
+                       placeholder="Enter monthly budget" min="1">
+                <button type="button" id="budgetBtn">
+                    Set Budget
+                </button>
+            </div>
+
+            <h3 id="budgetText">Budget: Rs. 0</h3>
+            <div class="progress">
+                <div id="progressBar"></div>
+            </div>
+
+            <p id="budgetMessage">Set your monthly budget.</p>
+
+        </section>
+
+        <!-- Transactions -->
+        <section class="panel" id="transactions">
+
+            <div class="table-heading">
+                <h2>All Transactions</h2>
+
+                <input type="search" id="search"
+                       placeholder="Search expenses...">
+            </div>
+
+            <div class="table-container">
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Category</th>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="expenseTable">
+                    </tbody>
+
+                </table>
+            </div>
+
+        </section>
+
+        <!-- Reports -->
+        <section class="panel" id="reports">
+
+            <h2>Category Report</h2>
+
+            <div id="categoryReport"></div>
+
+        </section>
+
+        <footer>
+            <p>ExpensePro © 2026 | Personal Finance Manager</p>
+        </footer>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
